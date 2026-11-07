@@ -77,16 +77,25 @@ Steps for a new viewer (for example a science file viewer):
 
 To check the page in a running sandbox, run `./gradlew runIde -PjcefDebugPort=9334` and open `http://127.0.0.1:9334/json/list`.
 
-## Support and more tools
+[zovo-support-start]: #
 
-- [Source code and issues on GitHub](https://github.com/theluckystrike/office-viewer-jetbrains)
-- [Sponsor on GitHub](https://github.com/sponsors/theluckystrike)
-- [Context Drift](https://github.com/theluckystrike/context-drift-jetbrains) for JetBrains IDEs: finds stale commands and paths in AGENTS.md and CLAUDE.md
-- [DOCX Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode) for VS Code
-- [PPTX Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer) for VS Code
-- [All Zovo tools](https://github.com/theluckystrike)
+## Support Zovo
 
-The same links are in the IDE under Help, DOCX & PPTX Viewer: Support and More Tools.
+Zovo builds and maintains this plugin. If it saves you time, you can support the work on [GitHub Sponsors](https://github.com/sponsors/theluckystrike). Sponsorship is optional, and the tool works the same without it.
+
+Bug reports and ideas go to [GitHub issues](https://github.com/theluckystrike/office-viewer-jetbrains/issues). The same links are in the IDE under Help, DOCX & PPTX Viewer: Support and More Tools.
+
+Zovo is made by [theluckystrike](https://github.com/theluckystrike) on GitHub.
+
+## More tools by Zovo
+
+- [DOCX Viewer, Word Viewer & DOCX Preview (Dark Mode)](https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode) for VS Code. Previews Word and ODT files with dark mode, an outline and search.
+- [PPTX Viewer & PowerPoint Viewer, PPT Slide Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer) for VS Code. Shows PowerPoint slides, thumbnails and speaker notes.
+- [PDF Viewer & PDF Reader](https://marketplace.visualstudio.com/items?itemName=zovo.pdf-viewer-dark) for VS Code. Reads PDFs with a real dark mode, search, an outline and thumbnails.
+- [Office Viewer for Obsidian](https://github.com/theluckystrike/obsidian-office-viewer). Opens DOCX, PPTX and XLSX files in your Obsidian vault, read-only.
+- [All Zovo tools on GitHub](https://github.com/theluckystrike?tab=repositories). Free tools for VS Code, JetBrains IDEs, Obsidian, Apify and Atlassian.
+
+[zovo-support-end]: #
 
 ## License
 
