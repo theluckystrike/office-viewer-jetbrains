@@ -32,7 +32,7 @@ Old .doc and .ppt files get a short message on how to convert them and an Open i
 
 The editor toolbar has Zoom Out, Zoom In, Fit, Find, Outline (Word) or the slide arrows (PowerPoint), Copy as Markdown and Open in Default App.
 
-Limits in 0.1.0: charts in slides show as a box ("Chart not drawn in this version"). SmartArt, video and embedded objects are named in the status line. Comments in Word files are not shown.
+Limits in 0.1.1: charts in slides show as a box ("Chart not drawn in this version"). SmartArt, video and embedded objects are named in the status line. Comments in Word files are not shown. Word pages break only where the file has a page or section break, so a long document can show fewer, longer pages than Word. Password-protected files cannot be opened; the tab says so. Find marks the first 5,000 matches.
 
 ## Privacy
 
@@ -81,7 +81,7 @@ To check the page in a running sandbox, run `./gradlew runIde -PjcefDebugPort=93
 
 - [Source code and issues on GitHub](https://github.com/theluckystrike/office-viewer-jetbrains)
 - [Sponsor on GitHub](https://github.com/sponsors/theluckystrike)
-- [Context Drift](https://plugins.jetbrains.com/plugin/35875) for JetBrains IDEs: finds stale commands and paths in AGENTS.md and CLAUDE.md
+- [Context Drift](https://github.com/theluckystrike/context-drift-jetbrains) for JetBrains IDEs: finds stale commands and paths in AGENTS.md and CLAUDE.md
 - [DOCX Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode) for VS Code
 - [PPTX Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer) for VS Code
 - [All Zovo tools](https://github.com/theluckystrike)

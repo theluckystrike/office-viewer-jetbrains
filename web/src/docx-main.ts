@@ -3,7 +3,7 @@
 import { renderAsync, Options } from "docx-preview";
 import { label, summarizeDocx, RevisionSummary } from "./core/revisions";
 import { stepZoom } from "./core/grid";
-import { markMatches } from "./find";
+import { markMatches, MAX_MARKS } from "./find";
 import { onCommand, send } from "./host";
 import { button, div, el, empty } from "./dom";
 import { start, copyText, isTyping, Layout } from "./shell";
@@ -214,7 +214,7 @@ class DocxPage {
 		const m = this.marks[this.current];
 		m?.classList.add("is-current");
 		m?.scrollIntoView({ block: "center" });
-		this.countEl.textContent = `${this.current + 1} of ${this.marks.length}`;
+		this.countEl.textContent = `${this.current + 1} of ${this.marks.length}${this.marks.length >= MAX_MARKS ? "+" : ""}`;
 	}
 
 	private async copyMarkdown(): Promise<void> {
@@ -227,4 +227,4 @@ class DocxPage {
 	}
 }
 
-void start(async (l, bytes) => { await new DocxPage(l, bytes).open(); });
+void start("docx", async (l, bytes) => { await new DocxPage(l, bytes).open(); });

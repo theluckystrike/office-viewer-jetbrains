@@ -16,7 +16,7 @@ object Support {
     )
 
     val RELATED = listOf(
-        Link("Context Drift for JetBrains IDEs", "https://plugins.jetbrains.com/plugin/35875", "Finds stale commands and paths in AGENTS.md and CLAUDE.md."),
+        Link("Context Drift for JetBrains IDEs", "https://github.com/theluckystrike/context-drift-jetbrains", "Finds stale commands and paths in AGENTS.md and CLAUDE.md."),
         Link("DOCX Viewer for VS Code", "https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode", "The Word viewer for VS Code, with a Git compare."),
         Link("PPTX Viewer for VS Code", "https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer", "PowerPoint slides and notes in VS Code."),
         Link("All Zovo tools", PROFILE, "theluckystrike on GitHub."),

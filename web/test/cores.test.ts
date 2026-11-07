@@ -117,3 +117,20 @@ test("bundles: one per format, no VS Code API, page shells load them from the pr
 	}
 	assert.ok(existsSync(path.join(web, "viewer.css")));
 });
+
+test("precheck gives plain messages for empty, encrypted and wrong packages", async () => {
+	const { checkPackage, isOle } = await import("../src/core/precheck");
+	const { zipSync } = await import("fflate");
+	assert.throws(() => checkPackage(new Uint8Array(0), "docx"), /empty \(0 bytes\)/);
+	const ole = new Uint8Array(512); ole.set([0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1]);
+	assert.equal(isOle(ole), true);
+	assert.throws(() => checkPackage(ole, "docx"), /password-protected/);
+	assert.throws(() => checkPackage(ole, "pptx"), /password-protected/);
+	assert.throws(() => checkPackage(new TextEncoder().encode("plain text"), "pptx"), /not a PowerPoint presentation/);
+	const other = zipSync({ "hello.txt": new TextEncoder().encode("hi") });
+	assert.throws(() => checkPackage(other, "docx"), /no word\/document\.xml part/);
+	const cut = fx("tracked.docx").slice(0, 4000);
+	assert.throws(() => checkPackage(cut, "docx"), /damaged or incomplete/);
+	assert.doesNotThrow(() => checkPackage(fx("tracked.docx"), "docx"));
+	assert.throws(() => checkPackage(fx("tracked.docx"), "pptx"), /no ppt\/presentation\.xml part/);
+});

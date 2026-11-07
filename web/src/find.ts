@@ -11,7 +11,10 @@ export function clearMarks(root: HTMLElement): void {
 	}
 }
 
-export function markMatches(root: HTMLElement, query: string, limit = 5000): HTMLElement[] {
+/** Find stops marking after this many hits; the counter then shows "5000+". */
+export const MAX_MARKS = 5000;
+
+export function markMatches(root: HTMLElement, query: string, limit = MAX_MARKS): HTMLElement[] {
 	clearMarks(root);
 	const q = query.trim().toLocaleLowerCase();
 	if (!q) return [];

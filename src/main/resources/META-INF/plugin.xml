@@ -26,19 +26,20 @@
 <p>Zoom, fit, find, outline or slide arrows, Copy as Markdown, and Open in Default App (Word, PowerPoint, LibreOffice or Keynote).</p>
 <h3>How it works</h3>
 <p>The files are drawn by the browser engine built into the IDE (JCEF), from scripts inside the plugin. Nothing is uploaded and no network call is made. Links in a document open in your web browser. The viewer follows the IDE theme, light or dark, and keeps the pages white like paper. In remote development clients without JCEF, the tab shows the file size and an Open in Default App button.</p>
-<p>Charts in slides are not drawn in this version; a box marks where they are. SmartArt, video and embedded objects are named in the status line.</p>
+<p>Charts in slides are not drawn in this version; a box marks where they are. SmartArt, video and embedded objects are named in the status line. Word pages break only where the file has a page or section break, so a long document can show fewer, longer pages than Word. Password-protected files cannot be opened.</p>
 <p>Free and open source (MIT). Source code and issues: <a href="https://github.com/theluckystrike/office-viewer-jetbrains">github.com/theluckystrike/office-viewer-jetbrains</a>. If it helps you, you can <a href="https://github.com/sponsors/theluckystrike">sponsor it on GitHub</a>. Not affiliated with Microsoft.</p>
 <h3>Support and more tools</h3>
 <ul>
 <li><a href="https://github.com/theluckystrike/office-viewer-jetbrains">GitHub</a> for the source code and <a href="https://github.com/theluckystrike/office-viewer-jetbrains/issues">issues</a>.</li>
 <li><a href="https://github.com/sponsors/theluckystrike">GitHub Sponsors</a> keeps the viewer free and maintained.</li>
-<li><a href="https://plugins.jetbrains.com/plugin/35875">Context Drift</a> for JetBrains IDEs. Finds commands, paths and versions in AGENTS.md and CLAUDE.md that no longer match your repo.</li>
+<li><a href="https://github.com/theluckystrike/context-drift-jetbrains">Context Drift</a> for JetBrains IDEs. Finds commands, paths and versions in AGENTS.md and CLAUDE.md that no longer match your repo.</li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode">DOCX Viewer</a> for VS Code. The same Word viewer in VS Code, with a Git compare.</li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer">PPTX Viewer</a> for VS Code. PowerPoint slides and notes in VS Code.</li>
 </ul>
 <p>All Zovo tools: <a href="https://github.com/theluckystrike">theluckystrike on GitHub</a>. The same links are in Help | DOCX &amp; PPTX Viewer: Support and More Tools.</p>
 ]]></description>
   <change-notes><![CDATA[
+<p>0.1.1: plain messages for empty, password-protected and damaged files, and for a ZIP that is not a Word or PowerPoint file. A deck with no slides says so. Find shows "5000+" when it stops at 5,000 matches.</p>
 <p>0.1.0: first release. Word pages with zoom, find, tracked changes, an outline and Copy as Markdown. PowerPoint slides with a thumbnail strip, arrow keys, speaker notes, find and Copy as Markdown. A clear message for old .doc and .ppt files.</p>
 ]]></change-notes>
   <depends>com.intellij.modules.platform</depends>

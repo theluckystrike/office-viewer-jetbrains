@@ -147,7 +147,8 @@ class PptxPage {
 		this.slides.forEach((s, i) => s.classList.toggle("ov-hidden", i !== this.index - 1));
 		this.thumbs.forEach((t, i) => t.classList.toggle("is-active", i === this.index - 1));
 		this.thumbs[this.index - 1]?.scrollIntoView({ block: "nearest" });
-		this.counter.textContent = `${this.index} / ${count}`;
+		this.counter.textContent = count ? `${this.index} / ${count}` : "No slides";
+		if (!count) { this.l.status.textContent = "This presentation has no slides."; return; }
 		this.showNotes();
 		hideCharts(this.l.root);
 		const s = this.deck.slides[this.index - 1];
@@ -193,4 +194,4 @@ class PptxPage {
 	}
 }
 
-void start(async (l, bytes) => { await new PptxPage(l, bytes).open(); });
+void start("pptx", async (l, bytes) => { await new PptxPage(l, bytes).open(); });

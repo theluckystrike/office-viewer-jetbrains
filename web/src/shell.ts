@@ -1,6 +1,7 @@
 // Page layout shared by the DOCX and PPTX views: toolbar, body, status line, errors, copy.
 import { applyTheme, params, send, loadFile, Params } from "./host";
 import { div, el, empty } from "./dom";
+import { checkPackage, PackageKind } from "./core/precheck";
 
 export interface Layout { root: HTMLElement; toolbar: HTMLElement; body: HTMLElement; status: HTMLElement; params: Params }
 
@@ -33,11 +34,12 @@ export function copyText(l: Layout, text: string, what: string): void {
 	l.status.textContent = `Copied ${what} as Markdown (${text.length.toLocaleString()} characters).`;
 }
 
-export async function start(run: (l: Layout, bytes: ArrayBuffer) => Promise<void>): Promise<void> {
+export async function start(kind: PackageKind, run: (l: Layout, bytes: ArrayBuffer) => Promise<void>): Promise<void> {
 	const l = layout();
 	const t0 = performance.now();
 	try {
 		const bytes = await loadFile();
+		checkPackage(new Uint8Array(bytes), kind);
 		await run(l, bytes);
 		send({ type: "ready", ms: Math.round(performance.now() - t0), bytes: bytes.byteLength });
 	} catch (e) {
