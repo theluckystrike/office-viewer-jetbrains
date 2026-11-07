@@ -1,0 +1,62 @@
+<idea-plugin>
+  <id>zovo.office-viewer</id>
+  <name>DOCX &amp; PPTX Viewer</name>
+  <vendor url="https://github.com/theluckystrike/office-viewer-jetbrains">Zovo</vendor>
+  <description><![CDATA[<p>Open Word and PowerPoint files in an editor tab of IntelliJ IDEA, PyCharm, WebStorm, GoLand, Rider and every other IntelliJ-based IDE. A .docx shows as real pages with their layout, and a .pptx shows as slides with the speaker notes. Read-only and offline.</p>
+<h3>Word files (.docx, .dotx, .docm)</h3>
+<ul>
+  <li>Page layout with headers, footers, footnotes, tables and images.</li>
+  <li>Zoom in and out, or fit the page to the window.</li>
+  <li>Find in the document (Ctrl+F or Cmd+F), with Enter and Shift+Enter to move between matches.</li>
+  <li>Tracked changes: a button shows insertions and deletions, with a count of changes and people.</li>
+  <li>An outline of the headings. Click one to jump to it.</li>
+  <li>Copy as Markdown puts the text, headings, lists and tables on the clipboard.</li>
+</ul>
+<h3>PowerPoint files (.pptx, .ppsx, .pptm, .potx)</h3>
+<ul>
+  <li>A strip of slide thumbnails next to the large slide.</li>
+  <li>Arrow keys, Page Up and Page Down, Home and End move between slides.</li>
+  <li>Speaker notes under each slide, which you can hide.</li>
+  <li>Find in slide text and notes. Matching slides are marked in the strip.</li>
+  <li>Copy as Markdown gives the titles, bullets, tables and notes of every slide.</li>
+</ul>
+<h3>Old .doc and .ppt files</h3>
+<p>Word 97-2003 and PowerPoint 97-2003 binary files get a short message with the way to convert them, and a button that opens them in their own app. A .docx or .pptx that was renamed to .doc or .ppt opens normally.</p>
+<h3>Editor toolbar</h3>
+<p>Zoom, fit, find, outline or slide arrows, Copy as Markdown, and Open in Default App (Word, PowerPoint, LibreOffice or Keynote).</p>
+<h3>How it works</h3>
+<p>The files are drawn by the browser engine built into the IDE (JCEF), from scripts inside the plugin. Nothing is uploaded and no network call is made. Links in a document open in your web browser. The viewer follows the IDE theme, light or dark, and keeps the pages white like paper. In remote development clients without JCEF, the tab shows the file size and an Open in Default App button.</p>
+<p>Charts in slides are not drawn in this version; a box marks where they are. SmartArt, video and embedded objects are named in the status line.</p>
+<p>Free and open source (MIT). Source code and issues: <a href="https://github.com/theluckystrike/office-viewer-jetbrains">github.com/theluckystrike/office-viewer-jetbrains</a>. If it helps you, you can <a href="https://github.com/sponsors/theluckystrike">sponsor it on GitHub</a>. Not affiliated with Microsoft.</p>
+<h3>Support and more tools</h3>
+<ul>
+<li><a href="https://github.com/theluckystrike/office-viewer-jetbrains">GitHub</a> for the source code and <a href="https://github.com/theluckystrike/office-viewer-jetbrains/issues">issues</a>.</li>
+<li><a href="https://github.com/sponsors/theluckystrike">GitHub Sponsors</a> keeps the viewer free and maintained.</li>
+<li><a href="https://plugins.jetbrains.com/plugin/35875">Context Drift</a> for JetBrains IDEs. Finds commands, paths and versions in AGENTS.md and CLAUDE.md that no longer match your repo.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode">DOCX Viewer</a> for VS Code. The same Word viewer in VS Code, with a Git compare.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer">PPTX Viewer</a> for VS Code. PowerPoint slides and notes in VS Code.</li>
+</ul>
+<p>All Zovo tools: <a href="https://github.com/theluckystrike">theluckystrike on GitHub</a>. The same links are in Help | DOCX &amp; PPTX Viewer: Support and More Tools.</p>
+]]></description>
+  <change-notes><![CDATA[
+<p>0.1.0: first release. Word pages with zoom, find, tracked changes, an outline and Copy as Markdown. PowerPoint slides with a thumbnail strip, arrow keys, speaker notes, find and Copy as Markdown. A clear message for old .doc and .ppt files.</p>
+]]></change-notes>
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileType name="Word Document" implementationClass="zovo.officeviewer.OfficeFileTypes$Word" fieldName="INSTANCE"
+              extensions="docx;dotx;docm;doc"/>
+    <fileType name="PowerPoint Presentation" implementationClass="zovo.officeviewer.OfficeFileTypes$Slides" fieldName="INSTANCE"
+              extensions="pptx;ppsx;pptm;potx;ppt"/>
+    <fileEditorProvider implementation="zovo.officeviewer.OfficeEditorProvider"/>
+    <notificationGroup id="DOCX &amp; PPTX Viewer" displayType="BALLOON"/>
+  </extensions>
+
+  <actions>
+    <action id="zovo.officeviewer.Support" class="zovo.officeviewer.SupportAction"
+            text="DOCX &amp;&amp; PPTX Viewer: Support and More Tools"
+            description="GitHub, GitHub Sponsors and other tools by Zovo">
+      <add-to-group group-id="HelpMenu" anchor="last"/>
+    </action>
+  </actions>
+</idea-plugin>
